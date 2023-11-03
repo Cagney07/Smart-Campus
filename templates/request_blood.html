@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Request Blood</title>
+    <!-- Add Bootstrap CSS (you may need to adjust the path to your CSS file) -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    
+</head>
+<body>
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header bg-primary text-white">
+                        <h2 class="text-center">Request Blood</h2>
+                    </div>
+                    <div class="card-body">
+                        <form method="post">
+                            {% csrf_token %}
+                            
+                            <!-- Patient Name -->
+                            <div class="form-group">
+                                <label for="patient_name">
+                                    <i class="fas fa-user"></i> Patient Name:
+                                </label>
+                                <input type="text" class="form-control" id="patient_name" name="patient_name" required>
+                            </div>
+                            
+                            <!-- Blood Group (Dropdown) -->
+                            <div class="form-group">
+                                <label for="blood_group">
+                                    <i class="fas fa-tint"></i> Blood Group:
+                                </label>
+                                <select class="form-control" id="blood_group" name="blood_group" required>
+                                    <option value="A+">A+</option>
+                                    <option value="A-">A-</option>
+                                    <option value="B+">B+</option>
+                                    <option value="B-">B-</option>
+                                    <option value="AB+">AB+</option>
+                                    <option value="AB-">AB-</option>
+                                    <option value="O+">O+</option>
+                                    <option value="O-">O-</option>
+                                </select>
+                            </div>
+                            
+                            <!-- Location -->
+                            <div class="form-group">
+                                <label for="location">
+                                    <i class="fas fa-map-marker-alt"></i> Location:
+                                </label>
+                                <input type="text" class="form-control" id="location" name="location" required>
+                            </div>
+                            
+                            <!-- Age -->
+                            <div class="form-group">
+                                <label for="age">
+                                     Age:
+                                </label>
+                                <input type="number" class="form-control" id="age" name="age" required>
+                            </div>
+                            
+                            <!-- Patient Condition -->
+                            <div class="form-group">
+                                <label for="patient_condition">
+                                    <i class="fas fa-notes-medical"></i> Patient Condition:
+                                </label>
+                                <textarea class="form-control" id="patient_condition" name="patient_condition" rows="4" required></textarea>
+                            </div>
+                            
+                            <!-- Submit and Clear Buttons -->
+                            <div class="text-center">
+                                <button type="submit" class="btn btn-success">
+                                    <i class="fas fa-paper-plane"></i> Submit
+                                </button>
+                                <button type="reset" class="btn btn-danger">
+                                    <i class="fas fa-undo"></i> Clear
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add Bootstrap JavaScript and jQuery (you may need to adjust the paths) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

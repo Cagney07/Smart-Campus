@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Find Donors</title>
+    <style>
+        /* Custom styling for the page */
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to bottom, #3498db, #ffffff); /* Gradient background */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .container {
+            padding: 50px;
+        }
+
+        .btn-container {
+            display: flex;
+            flex-direction: column;
+            gap: 20px; /* Spacing between buttons */
+        }
+
+        /* Button styling */
+        .btn {
+            font-size: 24px; /* Larger font size */
+            padding: 20px 40px; /* Larger padding */
+            transition: background-color 0.3s, color 0.3s;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            background-color: #007bff; /* Button background color */
+            color: #fff; /* Button text color */
+            text-transform: uppercase; /* Uppercase text */
+        }
+
+        .btn:hover {
+            background-color: #28a745; /* Hover background color (green) */
+        }
+
+        /* Heading styling */
+        h1 {
+            color: #ffffff; /* White color for the heading */
+            font-size: 48px; /* Increased font size */
+            margin-bottom: 20px; /* Added margin to separate from buttons */
+        }
+
+        /* Popup styling */
+        .popup {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            z-index: 999;
+        }
+
+        /* Styling for overlay */
+        .overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 998;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Find Donors</h1>
+        
+        <div class="btn-container">
+            <!-- Button to Donate Blood -->
+            <form method="post" action="{% url 'donate_blood' %}">
+                {% csrf_token %}
+                <button type="submit" class="btn">
+                    <i class="fas fa-hand-holding-heart"></i> Donate Blood
+                </button>
+            </form>
+            
+            <!-- Button to Request Blood -->
+            <form method="post" action="{% url 'request_blood' %}">
+                {% csrf_token %}
+                <button type="submit" class="btn">
+                    <i class="fas fa-hand-holding-medical"></i> Request Blood
+                </button>
+            </form>
+
+            <!-- Button to Log Out -->
+            <form method="post" action="{% url 'logout' %}">
+                {% csrf_token %}
+                <button type="submit" class="btn">
+                    <i class="fas fa-sign-out-alt"></i> Log Out
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Popup content -->
+    <div class="overlay" id="overlay"></div>
+    <div class="popup" id="popup">
+        <p>This is a popup message!</p>
+        <button onclick="closePopup()">Close</button>
+    </div>
+
+    <!-- JavaScript to show/hide popup -->
+    <script>
+        function showPopup() {
+            document.getElementById("overlay").style.display = "block";
+            document.getElementById("popup").style.display = "block";
+        }
+
+        function closePopup() {
+            document.getElementById("overlay").style.display = "none";
+            document.getElementById("popup").style.display = "none";
+        }
+    </script>
+</body>
+</html>

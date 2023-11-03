@@ -1,0 +1,47 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Parking Page</title>
+    <!-- Add Bootstrap CSS (you may need to adjust the path to your CSS file) -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- <link rel="stylesheet" type="text/css" href="parking.css"> -->
+
+</head>
+<body>
+    <div class="container mt-5">
+        <h1>Parking Page</h1>
+        <br>
+<h2>Tech Park Avenue</h2>
+        <!-- Add your videos or embed code here -->
+        <div class="embed-responsive embed-responsive-16by9">
+            <!-- Video 1 -->
+            
+            <video width="320" height="240" autoplay>
+                <source src="{% static 'videos/carvideo.mp4' %}" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+    <h2>Tech Park Main</h2>
+        <div class="embed-responsive embed-responsive-16by9 mt-3">
+            <!-- Video 2 -->
+            <video width="320" height="240" autoplay>
+                <source src="{% static 'videos/carvideo.mp4' %}" type="video/mp4">
+                Your browser does not support the video tag.
+        </div>
+    <h2>BEL Parking</h2>
+        <div class="embed-responsive embed-responsive-16by9 mt-3">
+            <!-- Video 3 -->
+            <video width="320" height="240" autoplay>
+                <source src="{% static 'videos/carvideo.mp4' %}" type="video/mp4">
+                Your browser does not support the video tag.
+        </div>
+    </div>
+
+    <!-- Add Bootstrap JavaScript and jQuery (you may need to adjust the paths) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
